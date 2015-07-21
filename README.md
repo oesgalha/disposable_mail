@@ -1,6 +1,6 @@
 # DisposableMail
 
-DisposableMail serves you an updated blacklist with domains from (https://en.wikipedia.org/wiki/Disposable_email_address)[disposable mail services]. The list can be used to prevent sending mails which probably won't be open, or to prevent dummy users registration in your website.
+DisposableMail serves you a blacklist with domains from (https://en.wikipedia.org/wiki/Disposable_email_address)[disposable mail services], like `mailinator.com` or `guerrillamail`. The list can be used to prevent sending mails to these domains (which probably won't be open), or to prevent dummy users registration in your website.
 
 The domain list comes from this git repo:
 https://github.com/martenson/disposable-email-domains
