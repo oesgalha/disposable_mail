@@ -43,7 +43,7 @@ If you include this gem in your rails project you can use a custom validator to 
 
 If your users are in a model called `User` and the email is an attribute called `email`, you can validate them with:
 
-```
+```ruby
 class User < ActiveRecord::Base
 
 # validates :email, undisposable: true
