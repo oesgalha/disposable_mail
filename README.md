@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/oesgalha/disposable_mail.svg)](https://travis-ci.org/oesgalha/disposable_mail)
 [![Code Climate](https://codeclimate.com/github/oesgalha/disposable_mail/badges/gpa.svg)](https://codeclimate.com/github/oesgalha/disposable_mail)
 
-DisposableMail serves you a blacklist with domains from (https://en.wikipedia.org/wiki/Disposable_email_address)[disposable mail services], like `mailinator.com` or `guerrillamail`. The list can be used to prevent sending mails to these domains (which probably won't be open), or to prevent dummy users registration in your website.
+DisposableMail serves you a blacklist with domains from [disposable mail services](https://en.wikipedia.org/wiki/Disposable_email_address), like `mailinator.com` or `guerrillamail.com`. The list can be used to prevent sending mails to these domains (which probably won't be open), or to prevent dummy users registration in your website.
 
 The domain list comes from this git repo:
 https://github.com/martenson/disposable-email-domains
