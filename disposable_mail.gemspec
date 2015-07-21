@@ -8,8 +8,12 @@ Gem::Specification.new do |spec|
   spec.version       = DisposableMail::VERSION
   spec.authors       = ['Oscar Esgalha']
   spec.email         = ['oscaresgalha@gmail.com']
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{A ruby gem with a list of disposable mail domains.}
+  spec.description   = <<DESC
+DisposableMail serves you a blacklist with domains from disposable mail services, like mailinator.com or guerrillamail.com.
+ The list can be used to prevent sending mails to these domains (which probably won't be open),
+ or to prevent dummy users registration in your website.
+DESC
   spec.homepage      = ''
   spec.license       = 'MIT'
 
