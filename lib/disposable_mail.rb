@@ -10,7 +10,7 @@ module DisposableMail
 
     # Check if a mail is disposable (if it's domain is in the list)
     def include?(mail)
-      list.includes?(mail[/@(.+)/, 1])
+      list.include?(mail[/@(.+)/, 1])
     end
   end
 end

@@ -10,4 +10,13 @@ class TestDisposableMail < MiniTest::Test
       refute_match /[@\s]/, domain
     end
   end
+
+  def test_include
+    assert DisposableMail.include? "bot@mailinator.com"
+    assert DisposableMail.include? "fake@guerillamail.com"
+    assert DisposableMail.include? "johndoe@spamgourmet.com"
+
+    refute DisposableMail.include? "legit-person@yahoo.com"
+    refute DisposableMail.include? "someone@gmail.com"
+  end
 end
