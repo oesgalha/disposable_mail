@@ -14,20 +14,20 @@ And this gem syncs with it through a git submodule (see the data folder).
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'disposable_mail', github: 'oesgalha/disposable_mail'
+gem 'disposable_mail', github: 'oesgalha/disposable_mail', submodules: true
 ```
+
+(Notice: The `submodules: true` option is important! The data from this gem comes from a git submodule and without it, it won't work properly)
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install disposable_mail
-
 ## Usage
 
 ```ruby
+require 'disposable_mail'
+
 DisposableMail.list # => ["0815.ru", "0815.su", "0clickemail.com", "0-mail.com", "0wnd.net", "0wnd.org", "10minut.com.pl", ... ]
 
 DisposableMail.include? "dummy@mailinator.com" # => true
@@ -35,6 +35,21 @@ DisposableMail.include? "dummy@mailinator.com" # => true
 DisposableMail.include? "bot@guerillamail.com" # => true
 
 DisposableMail.include? "legit-person@yahoo.com" # => false
+```
+
+### Rails
+
+If you include this gem in your rails project you can use a custom validator to block dummy user registration.
+
+If your users are in a model called `User` and the email is an attribute called `email`, you can validate them with:
+
+```
+class User < ActiveRecord::Base
+
+# validates :email, undisposable: true
+validates :email, undisposable: { message: 'Sorry, but we do not accept your mail provider.' }
+
+end
 ```
 
 ## Contributing
