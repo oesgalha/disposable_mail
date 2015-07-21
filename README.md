@@ -12,7 +12,7 @@ And this gem syncs with it through a git submodule (see the data folder).
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'disposable_mail'
+gem 'disposable_mail', github: 'oesgalha/disposable_mail'
 ```
 
 And then execute:
