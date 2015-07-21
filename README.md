@@ -87,7 +87,7 @@ en:
   errors:
     attributes:
       email:
-        undisposable: "Sorry, but we do not accept your mail provider."
+        undisposable: "domain is blocked"
 ```
 
 You can use the aforementioned order of lookup to craft specific error messages.
