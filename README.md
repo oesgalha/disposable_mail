@@ -80,7 +80,7 @@ errors.attributes.email.undisposable
 errors.messages.undisposable
 ```
 
-Here's an example of a possible `en.yml` file:
+Here's an example of an `en.yml` file:
 
 ```yml
 en:
@@ -91,6 +91,10 @@ en:
 ```
 
 You can use the aforementioned order of lookup to craft specific error messages.
+
+This gem comes with default messages for the following locales:
+- en
+- pt-BR
 
 ## Contributing
 
