@@ -39,18 +39,58 @@ DisposableMail.include? "legit-person@yahoo.com" # => false
 
 ### Rails
 
-If you include this gem in your rails project you can use a custom validator to block dummy user registration.
+If you include this gem in your rails project you can use a custom validator to block dummy users registration.
 
-If your users are in a model called `User` and the email is an attribute called `email`, you can validate them with:
+Suposse you don't want to create `User`s with a blacklisted mail domain, and your mail attribute is called `email`:
 
 ```ruby
 class User < ActiveRecord::Base
 
-# validates :email, undisposable: true
-validates :email, undisposable: { message: 'Sorry, but we do not accept your mail provider.' }
+  # validates :email, undisposable: true
+  validates :email, undisposable: { message: 'Sorry, but we do not accept your mail provider.' }
 
 end
 ```
+
+Now if you try to create an user with a mail from the blacklisted domains, you get an AR validation error:
+
+```ruby
+user = User.create(email: "bot@mailinator.com")
+user.errors.messages # => {:email=>["Sorry, but we do not accept your mail provider."]}
+```
+
+What if you want to create those users only in the test environment?
+
+```ruby
+class User < ActiveRecord::Base
+
+  validates :email, undisposable: true, unless: -> { Rails.env.test? }
+
+end
+```
+
+### I18n
+
+If you don't specify the message in the model validation, Active Record will look for messages in this order:
+```
+activerecord.errors.models.user.attributes.email.undisposable
+activerecord.errors.models.user.undisposable
+activerecord.errors.messages.undisposable
+errors.attributes.email.undisposable
+errors.messages.undisposable
+```
+
+Here's an example of a possible `en.yml` file:
+
+```yml
+en:
+  errors:
+    attributes:
+      email:
+        undisposable: "Sorry, but we do not accept your mail provider."
+```
+
+You can use the aforementioned order of lookup to craft specific error messages.
 
 ## Contributing
 
