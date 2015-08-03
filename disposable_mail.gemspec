@@ -14,7 +14,7 @@ DisposableMail serves you a blacklist with domains from disposable mail services
  The list can be used to prevent sending mails to these domains (which probably won't be open),
  or to prevent dummy users registration in your website.
 DESC
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/oesgalha/disposable_mail'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
