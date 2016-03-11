@@ -1,4 +1,7 @@
-require 'test_helper'
+require 'minitest/autorun'
+require 'minitest/benchmark'
+require 'minitest/pride'
+require 'disposable_mail'
 
 class TestDisposableMail < MiniTest::Test
   def test_list
@@ -12,9 +15,9 @@ class TestDisposableMail < MiniTest::Test
   end
 
   def test_include
-    assert DisposableMail.include? "bot@mailinator.com"
-    assert DisposableMail.include? "fake@guerillamail.com"
-    assert DisposableMail.include? "johndoe@trashmail.com"
+    DisposableMail.list.each do |domain|
+      assert DisposableMail.include? "bot@#{domain}"
+    end
 
     refute DisposableMail.include? "legit-person@yahoo.com"
     refute DisposableMail.include? "someone@gmail.com"
