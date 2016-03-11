@@ -106,6 +106,11 @@ This gem comes with default messages for the following locales:
 
 ## Changelog
 
+### 0.1.3 - 2016-03-11
+
+  * Slightly faster `#include?`
+  * Update blacklist
+
 ### 0.1.2 - 2015-11-03
 
   * Update blacklist
