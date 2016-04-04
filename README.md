@@ -17,8 +17,6 @@ Add this line to your application's Gemfile:
 gem 'disposable_mail', '~> 0.1.0'
 ```
 
-(Notice: The `submodules: true` option is important! The data from this gem comes from a git submodule and without it, it won't work properly)
-
 And then execute:
 
     $ bundle
