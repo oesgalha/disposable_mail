@@ -14,7 +14,7 @@ And this gem syncs with it through a git submodule (see the data folder).
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'disposable_mail', '~> 0.1.4'
+gem 'disposable_mail', '~> 0.1'
 ```
 
 And then execute:
@@ -103,6 +103,10 @@ This gem comes with default messages for the following locales:
 5. Create a new Pull Request
 
 ## Changelog
+
+### 0.1.5 - 2016-06-27
+
+  * Update blacklist
 
 ### 0.1.4 - 2016-04-04
 
