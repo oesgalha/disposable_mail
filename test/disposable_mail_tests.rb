@@ -21,5 +21,6 @@ class TestDisposableMail < MiniTest::Test
 
     refute DisposableMail.include? "legit-person@yahoo.com"
     refute DisposableMail.include? "someone@gmail.com"
+    refute DisposableMail.include? nil
   end
 end
