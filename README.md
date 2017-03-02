@@ -101,31 +101,3 @@ This gem comes with default messages for the following locales:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
-
-## Changelog
-
-### 0.1.5 - 2016-06-27
-
-  * Update blacklist
-
-### 0.1.4 - 2016-04-04
-
-  * Slightly faster `#include?`
-  * Update blacklist
-
-### 0.1.2 - 2015-11-03
-
-  * Update blacklist
-
-### 0.1.1 - 2015-08-13
-
-  * Update blacklist
-
-### 0.1.0 - 2015-08-03
-
-  * Remove IO to load the blacklist
-  * Update blacklist
-
-### 0.0.1 - 2015-07-21
-
-  * Initial version
