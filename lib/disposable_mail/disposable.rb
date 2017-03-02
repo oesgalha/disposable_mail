@@ -2133,6 +2133,7 @@ module DisposableMail
 
     # Check if a mail is disposable (if it's domain is in the list)
     def include?(mail)
+      return false if mail.nil?
       domain = mail[/@(.+)/, 1]
       list.bsearch { |d| domain <=> d }
     end
