@@ -15,6 +15,9 @@ namespace :disposable_mail do
     new_list = new_list.sub(/\]/, "\n]")
     new_list = new_list.sub(/\[/, "[\n")
 
+    temp_dir = File.join(File.dirname(__FILE__), 'tmp')
+    Dir.mkdir(temp_dir) unless Dir.exist?(temp_dir)
+
     File.open(File.expand_path(File.join(File.dirname(__FILE__), 'tmp/new_list.txt')), 'w') do |f|
       f.write(new_list)
     end
