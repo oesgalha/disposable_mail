@@ -1,5 +1,10 @@
 ## Changelog
 
+### 0.1.7 - 2018-10-12
+
+  * Update blacklist
+  * Improve rakefile task
+
 ### 0.1.6 - 2017-03-02
 
   * Do not raise an exception for a nil mail ([see #1](https://github.com/oesgalha/disposable_mail/pull/1), thanks @jan)
