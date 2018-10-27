@@ -3,7 +3,7 @@
 ### 0.1.7 - 2018-10-12
 
   * Update blacklist
-  * Improve rakefile task
+  * Improve rakefile task ([see #4](https://github.com/oesgalha/disposable_mail/pull/4), thanks @Ross65536)
 
 ### 0.1.6 - 2017-03-02
 
