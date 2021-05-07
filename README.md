@@ -26,13 +26,22 @@ And then execute:
 ```ruby
 require 'disposable_mail'
 
-DisposableMail.list # => ["0815.ru", "0815.su", "0clickemail.com", "0-mail.com", "0wnd.net", "0wnd.org", "10minut.com.pl", ... ]
+DisposableMail.list # => #<Set: {"0-mail.com", "027168.com", "0815.ru", "0815.ry", ... }>
 
 DisposableMail.include? "dummy@mailinator.com" # => true
 
 DisposableMail.include? "bot@guerillamail.com" # => true
 
 DisposableMail.include? "legit-person@yahoo.com" # => false
+
+# Customizing the list (Ruby Set)
+DisposableMail.list << "scam.com"
+DisposableMail.list.merge(["gmail.com", "yahoo.com"])
+DisposableMail.list.delete "mailinator.com"
+DisposableMail.include? "bot@scam.com" # => true
+DisposableMail.include? "legit-person@yahoo.com" # => true
+DisposableMail.include? "dummy@mailinator.com" # => false
+
 ```
 
 ### Rails

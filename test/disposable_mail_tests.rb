@@ -5,7 +5,7 @@ require 'disposable_mail'
 
 class TestDisposableMail < MiniTest::Test
   def test_list
-    assert_kind_of Array, DisposableMail.list
+    assert_kind_of Set, DisposableMail.list
     refute_empty DisposableMail.list
 
     DisposableMail.list.each do |domain|
@@ -21,6 +21,16 @@ class TestDisposableMail < MiniTest::Test
 
     refute DisposableMail.include? "legit-person@yahoo.com"
     refute DisposableMail.include? "someone@gmail.com"
+    refute DisposableMail.include? "gmail.com"
+    refute DisposableMail.include? "yopmail.com"
     refute DisposableMail.include? nil
+  end
+
+  def test_custom_list
+    refute DisposableMail.include? "legit@yahoo.com"
+    DisposableMail.list << "yahoo.com"
+    assert DisposableMail.include? "legit@yahoo.com"
+    DisposableMail.list.delete "yahoo.com"
+    refute DisposableMail.include? "legit@yahoo.com"
   end
 end

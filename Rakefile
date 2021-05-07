@@ -10,7 +10,7 @@ task default: :test
 namespace :disposable_mail do
   desc "outputs the current disposable domains"
   task :puts_domains do
-    blacklist_path = 'data/disposable-email-domains/disposable_email_blacklist.conf'
+    blacklist_path = 'data/disposable-email-domains/disposable_email_blocklist.conf'
     new_list = File.open(File.expand_path(File.join(File.dirname(__FILE__), blacklist_path))).readlines.map(&:strip).sort.to_s.gsub(/,/, ",\n")
     new_list = new_list.sub(/\]/, "\n]")
     new_list = new_list.sub(/\[/, "[\n")
