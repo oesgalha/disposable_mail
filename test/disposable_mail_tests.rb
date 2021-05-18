@@ -23,6 +23,7 @@ class TestDisposableMail < MiniTest::Test
     refute DisposableMail.include? "someone@gmail.com"
     refute DisposableMail.include? "gmail.com"
     refute DisposableMail.include? "yopmail.com"
+    refute DisposableMail.include? ""
     refute DisposableMail.include? nil
   end
 
@@ -32,5 +33,13 @@ class TestDisposableMail < MiniTest::Test
     assert DisposableMail.include? "legit@yahoo.com"
     DisposableMail.list.delete "yahoo.com"
     refute DisposableMail.include? "legit@yahoo.com"
+  end
+
+  def test_subdomains
+    assert DisposableMail.include? "email@test.yopmail.com"
+    assert DisposableMail.include? "email@yop.test.yopmail.com"
+    assert DisposableMail.include? "email@farrse.co.uk"
+    refute DisposableMail.include? "email@gmail.co.uk"
+    refute DisposableMail.include? "email@yopmail.com.gmail.fr"
   end
 end

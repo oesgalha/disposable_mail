@@ -3255,7 +3255,11 @@ module DisposableMail
     def include?(mail)
       return false if mail.nil?
       domain = mail.split('@')[1]
-      LIST.include?(domain)
+      while domain
+        return true if LIST.include?(domain)
+        domain = domain.split('.', 2)[1]
+      end
+      false
     end
   end
 end
