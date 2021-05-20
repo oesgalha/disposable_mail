@@ -5,6 +5,8 @@
   * Update blacklist
   * Change list type from Array to Set
   * Improve `#include?` performance 200 fold
+  * Adds possibility to modify the list
+  * Adds support for sub-domain detection
 
 ### 0.1.7 - 2018-10-12
 
