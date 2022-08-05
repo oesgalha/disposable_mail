@@ -9,17 +9,19 @@ task default: :test
 
 namespace :disposable_mail do
   desc "outputs the current disposable domains"
-  task :puts_domains do
-    blacklist_path = 'data/disposable-email-domains/disposable_email_blacklist.conf'
-    new_list = File.open(File.expand_path(File.join(File.dirname(__FILE__), blacklist_path))).readlines.map(&:strip).sort.to_s.gsub(/,/, ",\n")
-    new_list = new_list.sub(/\]/, "\n]")
-    new_list = new_list.sub(/\[/, "[\n")
+  task :update do
+    # Update submodule
+    system("cd data/disposable-email-domains; git pull")
 
-    temp_dir = File.join(File.dirname(__FILE__), 'tmp')
-    Dir.mkdir(temp_dir) unless Dir.exist?(temp_dir)
+    # Parse list
+    blacklist_path = 'data/disposable-email-domains/disposable_email_blocklist.conf'
+    new_list = File.readlines(blacklist_path).map(&:strip).sort.to_s.gsub(",", ",\n     ")
+    new_list = new_list.sub("]", "\n    ]")
+    new_list = new_list.sub("[", "[\n      ")
 
-    File.open(File.expand_path(File.join(File.dirname(__FILE__), 'tmp/new_list.txt')), 'w') do |f|
-      f.write(new_list)
-    end
+    # Rewrite the ruby file
+    ruby = File.read("lib/disposable_mail/disposable.rb")
+    ruby.sub!(/\[.+?\]/m, new_list)
+    File.write("lib/disposable_mail/disposable.rb", ruby)
   end
 end
